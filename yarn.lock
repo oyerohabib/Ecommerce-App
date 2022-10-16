@@ -1779,6 +1779,13 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@types/yup@^0.32.0":
+  "integrity" "sha512-Gr2lllWTDxGVYHgWfL8szjdedERpNgm44L9BDL2cmcHG7Bfd6taEpiW3ayMFLaYvlJr/6bFXDJdh6L406AGlFg=="
+  "resolved" "https://registry.npmjs.org/@types/yup/-/yup-0.32.0.tgz"
+  "version" "0.32.0"
+  dependencies:
+    "yup" "*"
+
 "@urql/core@>=2.3.1":
   "integrity" "sha512-raQP51ERNtg5BvlN8x8mHVRvk4K0ugWQ69n53BdkjKpXVV5kuWp7trnwriGv1fQKa8HuiGNSCfyslUucc0OVQg=="
   "resolved" "https://registry.npmjs.org/@urql/core/-/core-3.0.3.tgz"
@@ -7011,7 +7018,7 @@
   "resolved" "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   "version" "0.1.0"
 
-"yup@^0.28.5":
+"yup@*", "yup@^0.28.5":
   "integrity" "sha512-7JZcvpUGUxMKoaEtcoMEM8lCWRaueGNH/A3EhL/UWqfbFm3uloiI+x59Yq4nzhbbYWUTwAsCteaZOJ+VbqI1uw=="
   "resolved" "https://registry.npmjs.org/yup/-/yup-0.28.5.tgz"
   "version" "0.28.5"
