@@ -12,7 +12,6 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Text from "./Text";
 import defaultStyles from "../config/styles";
 import PickerItem from "./PickerItem";
-import Screen from "./Screen";
 
 function AppPicker({
   icon,
@@ -52,7 +51,6 @@ function AppPicker({
         </View>
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
-        {/* <Screen> */}
         <Button title="Close" onPress={() => setModalVisible(false)} />
         <FlatList
           data={items}
@@ -69,7 +67,6 @@ function AppPicker({
             />
           )}
         />
-        {/* </Screen> */}
       </Modal>
     </>
   );
