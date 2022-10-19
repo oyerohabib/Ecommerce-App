@@ -1,48 +1,111 @@
-import React, { useState } from "react";
-import ListingEditScreen from "./app/screens/ListingEditScreen";
-import AccountScreen from "./app/screens/AccountScreen";
-import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
-import ListingsScreen from "./app/screens/ListingsScreen";
-import LoginScreen from "./app/screens/LoginScreen";
-import MessagesScreen from "./app/screens/MessagesScreen";
-import RegisterScreen from "./app/screens/RegisterScreen";
-import ViewImageScreen from "./app/screens/ViewImageScreen";
-import WelcomeScreen from "./app/screens/WelcomeScreen";
-import Screen from "./app/components/Screen";
-import { StyleSheet } from "react-native";
-import ImageInput from "./app/components/ImageInput";
-import * as ImagePicker from "expo-image-picker";
-import ImageInputList from "./app/components/ImageInputList";
+import React from "react";
+import { Text, View } from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-export default function App() {
-  return <ListingEditScreen />;
-  // const [imageUris, setImageUris] = useState([]);
+import AuthNavigator from "./app/navigation/AuthNavigator";
 
-  // const handleAdd = (uri) => {
-  //   setImageUris([...imageUris, uri]);
-  // };
+import Button from "./app/components/Button";
+import myTheme from "./app/navigation/navigationTheme";
+import AppNavigator from "./app/navigation/AppNavigator";
 
-  // const handleRemove = (uri) => {
-  //   setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
-  // };
-
-  // return (
-  //   <Screen style={styles.container}>
-  //     <ImageInputList
-  //       imageUris={imageUris}
-  //       onAddImage={(uri) => {
-  //         handleAdd(uri);
-  //       }}
-  //       onRemoveImage={(uri) => {
-  //         handleRemove(uri);
-  //       }}
-  //     />
-  //   </Screen>
-  // );
+function Tweets({ navigation }) {
+  return (
+    <View style={{ padding: 10 }}>
+      <Text>Tweets</Text>
+      <Button
+        title="Next"
+        onPress={() => navigation.navigate("TweetDetails")}
+      />
+    </View>
+  );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 10,
-  },
-});
+function TweetDetails({ navigation }) {
+  return (
+    <View>
+      <Text>TweetDetails</Text>
+      <Button title="Previous" onPress={() => navigation.navigate("Tweets")} />
+    </View>
+  );
+}
+
+const Feed = () => {
+  return (
+    <View style={{ padding: 10 }}>
+      <Text>Feed Update</Text>
+      <Button title="new feeds" />
+    </View>
+  );
+};
+
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const TweetNavigator = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="Tweets" component={Tweets} />
+      <Stack.Screen name="TweetDetails" component={TweetDetails} />
+    </Stack.Navigator>
+  );
+};
+
+function App() {
+  return (
+    <NavigationContainer theme={myTheme}>
+      {/* <Stack.Navigator
+        screenOptions={{
+          headerStyle: { backgroundColor: "gray" },
+          headerTintColor: "white",
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen
+          name="Tweets"
+          component={Tweets}
+          options={{
+            headerStyle: { backgroundColor: "green" },
+            headerTintColor: "red",
+            headerShown: true,
+          }}
+        />
+        <Stack.Screen name="TweetDetails" component={TweetDetails} />
+      </Stack.Navigator> */}
+      {/* <Tab.Navigator>
+        <Tab.Screen
+          name="Home"
+          component={TweetNavigator}
+          options={{
+            tabBarIcon: ({ size, color }) => (
+              <MaterialCommunityIcons name="home" size={size} color={color} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Feed"
+          component={Feed}
+          options={{
+            tabBarIcon: ({ size, color }) => (
+              <MaterialCommunityIcons
+                name="account"
+                size={size}
+                color={color}
+              />
+            ),
+          }}
+        />
+      </Tab.Navigator> */}
+      {/* <AuthNavigator /> */}
+      <AppNavigator />
+    </NavigationContainer>
+  );
+}
+
+export default App;

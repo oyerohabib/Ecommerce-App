@@ -32,7 +32,7 @@ function RegisterScreen() {
           keyboardType="email-address"
           name="email"
           placeholder="Email"
-          // textContentType="emailAddress"
+          textContentType="emailAddress"
         />
         <FormField
           autoCapitalize="none"

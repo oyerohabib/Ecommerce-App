@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import * as Yup from "yup";
 
 import {
@@ -79,7 +79,7 @@ const categories = [
 
 function ListingEditScreen() {
   return (
-    <Screen style={styles.container}>
+    <View style={styles.container}>
       <Form
         initialValues={{
           title: "",
@@ -115,7 +115,7 @@ function ListingEditScreen() {
         />
         <SubmitButton title="Post" />
       </Form>
-    </Screen>
+    </View>
   );
 }
 
